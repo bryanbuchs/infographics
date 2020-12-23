@@ -1,4 +1,4 @@
-import EgerInfographic from '../Infographic.vue'
+import EgerInfographic from '@/components/infographic/Infographic.vue'
 
 const icons = ['faSchool', 'faChalkboardTeacher', 'faUser']
 

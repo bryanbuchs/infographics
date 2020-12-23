@@ -1,17 +1,35 @@
 <template>
-  <div class="eger-infographic"></div>
+  <div class="eger-infographic">
+    <svg
+      role="img"
+      xmlns="http://www.w3.org/2000/svg"
+      :viewBox="viewBox"
+      :title="title"
+    >
+      <defs>
+        <path id="shape" :d="path.d"></path>
+        <mask id="mask">
+          <use xlink:href="#shape" fill="#fff" />
+        </mask>
+      </defs>
+      <use xlink:href="#shape" fill="currentColor" />
+      <rect
+        :width="rect.width"
+        :height="rect.height"
+        :y="rect.y"
+        :fill="color"
+        mask="url(#mask)"
+      />
+    </svg>
+  </div>
 </template>
 
 <script>
-// import { library, icon } from '@fortawesome/fontawesome-svg-core'
 import {
   faUser,
   faChalkboardTeacher,
   faSchool
 } from '@fortawesome/free-solid-svg-icons'
-
-import * as am4core from '@amcharts/amcharts4/core'
-// import * as am4charts from '@amcharts/amcharts4/charts'
 
 export default {
   name: 'Infographic',
@@ -33,7 +51,6 @@ export default {
 
   data () {
     return {
-      gray: '#bfd3db',
       icons: [
         {
           name: 'faUser',
@@ -58,77 +75,26 @@ export default {
   },
 
   computed: {
-    svg () {
+    fa () {
       return this.icons.find(i => i.name === this.icon)
     },
+    viewBox () {
+      return `0 0 ${this.fa.width} ${this.fa.height}`
+    },
     path () {
-      return this.icons.find(i => i.name === this.icon).path
-    }
-  },
-
-  mounted () {
-    const component = am4core.create(this.$el, am4core.Container)
-    const background = component.createChild(am4core.Sprite)
-    const mask = component.createChild(am4core.Sprite)
-    const bar = component.createChild(am4core.Rectangle)
-
-    component.width = am4core.percent(100)
-    component.height = am4core.percent(100)
-    background.fill = am4core.color(this.color)
-    background.path = this.path
-    background.scale = component.pixelWidth / 640
-    background.strokeWidth = 0
-
-    background.x = am4core.percent(50)
-    background.dx = -(this.svg.width / 2)
-
-    mask.path = this.path
-    mask.strokeWidth = 0
-    mask.scale = component.pixelWidth / 640
-
-    bar.fill = am4core.color(this.gray)
-    bar.mask = mask
-    bar.height = am4core.percent(100 - this.value)
-    bar.width = am4core.percent(100)
-    bar.x = am4core.percent(50)
-    bar.dx = -(this.svg.width / 2)
-
-    component.events.on('maxsizechanged', () => this.resize())
-
-    this.component = component
-    this.bar = bar
-    this.background = background
-    this.mask = mask
-  },
-
-  beforeDestroy () {
-    if (this.component) {
-      this.component.dispose()
-    }
-  },
-
-  methods: {
-    resize () {
-      const scale = this.component.pixelWidth / 640
-      this.background.scale = scale
-      this.mask.scale = scale
-    }
-  },
-
-  watch: {
-    value: function () {
-      this.bar.height = am4core.percent(100 - this.value)
-      this.component.invalidate()
+      return {
+        d: this.fa.path
+      }
     },
-    color: function () {
-      this.background.fill = am4core.color(this.color)
+    rect () {
+      return {
+        width: this.fa.width,
+        height: (this.value / 100) * this.fa.height,
+        y: this.fa.height - (this.value / 100) * this.fa.height
+      }
     },
-    icon: function () {
-      this.background.path = this.path
-      this.mask.path = this.path
-
-      this.background.dx = -(this.svg.width / 2)
-      this.bar.dx = -(this.svg.width / 2)
+    title () {
+      return `${this.value}%`
     }
   }
 }
@@ -136,10 +102,9 @@ export default {
 
 <style lang="less">
 .eger-infographic {
-  outline: 1px dotted red;
-  outline-offset: 2px;
-
   position: relative;
+  overflow: hidden;
+  color: #bfd3db;
 
   &:before {
     content: '';
@@ -147,14 +112,15 @@ export default {
     padding-bottom: percentage((512/640));
   }
 
-  > div[style] {
-    position: absolute !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    top: 0 !important;
-    left: 0 !important;
-    bottom: 0 !important;
-    right: 0 !important;
+  > svg {
+    position: absolute;
+    display: block;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 }
 </style>
