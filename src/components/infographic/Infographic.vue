@@ -13,12 +13,6 @@ import {
 import * as am4core from '@amcharts/amcharts4/core'
 // import * as am4charts from '@amcharts/amcharts4/charts'
 
-// library.add(faUser)
-
-// console.log(faUser, faChalkboardTeacher, faSchool)
-
-// const user = icon({ prefix: 'fas', iconName: 'user' })
-
 export default {
   name: 'Infographic',
 
@@ -26,23 +20,40 @@ export default {
     value: {
       type: Number,
       default: 100
+    },
+    color: {
+      type: String,
+      required: true
+    },
+    icon: {
+      type: String,
+      required: true
     }
   },
 
   data () {
     return {
       gray: '#bfd3db',
-      blue: '#006B9C'
+      icons: [
+        {
+          name: 'faUser',
+          path: faUser.icon[4]
+        },
+        {
+          name: 'faChalkboardTeacher',
+          path: faChalkboardTeacher.icon[4]
+        },
+        {
+          name: 'faSchool',
+          path: faSchool.icon[4]
+        }
+      ]
     }
   },
 
   computed: {
-    maskPath () {
-      // faUser,
-      // faChalkboardTeacher,
-      // faSchool
-
-      return faSchool.icon[4]
+    path () {
+      return this.icons.find(i => i.name === this.icon).path
     }
   },
 
@@ -55,11 +66,13 @@ export default {
     component.width = am4core.percent(100)
     component.height = am4core.percent(100)
 
-    background.fill = am4core.color(this.blue)
-    background.path = this.maskPath
+    background.fill = am4core.color(this.color)
+    background.path = this.path
     background.scale = component.pixelWidth / 640
+    background.strokeWidth = 0
 
-    mask.path = this.maskPath
+    mask.path = this.path
+    mask.strokeWidth = 0
     mask.scale = component.pixelWidth / 640
 
     bar.fill = am4core.color(this.gray)
@@ -93,6 +106,13 @@ export default {
     value: function () {
       this.bar.height = am4core.percent(100 - this.value)
       this.component.invalidate()
+    },
+    color: function () {
+      this.background.fill = am4core.color(this.color)
+    },
+    icon: function () {
+      this.background.path = this.path
+      this.mask.path = this.path
     }
   }
 }
