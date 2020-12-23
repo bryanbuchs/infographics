@@ -37,14 +37,20 @@ export default {
       icons: [
         {
           name: 'faUser',
+          width: faUser.icon[0],
+          height: faUser.icon[1],
           path: faUser.icon[4]
         },
         {
           name: 'faChalkboardTeacher',
+          width: faChalkboardTeacher.icon[0],
+          height: faChalkboardTeacher.icon[1],
           path: faChalkboardTeacher.icon[4]
         },
         {
           name: 'faSchool',
+          width: faSchool.icon[0],
+          height: faSchool.icon[1],
           path: faSchool.icon[4]
         }
       ]
@@ -52,6 +58,9 @@ export default {
   },
 
   computed: {
+    svg () {
+      return this.icons.find(i => i.name === this.icon)
+    },
     path () {
       return this.icons.find(i => i.name === this.icon).path
     }
@@ -65,11 +74,13 @@ export default {
 
     component.width = am4core.percent(100)
     component.height = am4core.percent(100)
-
     background.fill = am4core.color(this.color)
     background.path = this.path
     background.scale = component.pixelWidth / 640
     background.strokeWidth = 0
+
+    background.x = am4core.percent(50)
+    background.dx = -(this.svg.width / 2)
 
     mask.path = this.path
     mask.strokeWidth = 0
@@ -79,6 +90,8 @@ export default {
     bar.mask = mask
     bar.height = am4core.percent(100 - this.value)
     bar.width = am4core.percent(100)
+    bar.x = am4core.percent(50)
+    bar.dx = -(this.svg.width / 2)
 
     component.events.on('maxsizechanged', () => this.resize())
 
@@ -113,6 +126,9 @@ export default {
     icon: function () {
       this.background.path = this.path
       this.mask.path = this.path
+
+      this.background.dx = -(this.svg.width / 2)
+      this.bar.dx = -(this.svg.width / 2)
     }
   }
 }
