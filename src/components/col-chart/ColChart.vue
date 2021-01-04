@@ -57,6 +57,10 @@ export default {
 
   background: fade(#dfe9ed, 25%);
 
+  max-width: 80px;
+  margin-left: auto;
+  margin-right: auto;
+
   &:before {
     content: '';
     display: block;

@@ -1,5 +1,5 @@
 <template>
-  <div class="eger-infographic">
+  <div class="eger-infographic pictorial">
     <svg
       role="img"
       xmlns="http://www.w3.org/2000/svg"
@@ -32,7 +32,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 
 export default {
-  name: 'Infographic',
+  name: 'Pictorial',
 
   props: {
     value: {
@@ -101,10 +101,14 @@ export default {
 </script>
 
 <style lang="less">
-.eger-infographic {
+.eger-infographic.pictorial {
   position: relative;
   overflow: hidden;
   color: #bfd3db;
+
+  max-width: 130px;
+  margin-left: auto;
+  margin-right: auto;
 
   &:before {
     content: '';

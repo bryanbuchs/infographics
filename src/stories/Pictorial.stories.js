@@ -1,4 +1,4 @@
-import EgerInfographic from '@/components/infographic/Infographic.vue'
+import EgerInfographicPictorial from '@/components/pictorial/Pictorial.vue'
 
 const icons = ['faSchool', 'faChalkboardTeacher', 'faUser']
 
@@ -10,7 +10,7 @@ const colors = [
 ]
 
 export default {
-  title: 'EGER/Infographic',
+  title: 'EGER/Pictorial',
   argTypes: {
     value: {
       control: { type: 'range', min: 0, max: 100, step: 1 }
@@ -43,9 +43,9 @@ const DefaultTemplate = (args, { argTypes }) => {
   const props = [...Object.keys(argTypes), 'color']
   // return the config
   return {
-    components: { EgerInfographic },
+    components: { EgerInfographicPictorial },
     props: props,
-    template: `<eger-infographic 
+    template: `<eger-infographic-pictorial 
                 :value="value" 
                 :icon="icon" 
                 :color="color" 
