@@ -1,4 +1,4 @@
-import EgerColChart from '@/components/col-chart/ColChart.vue'
+import EgerInfographicColumn from '@/components/column/Column.vue'
 
 const colors = [
   { name: 'bluegreen', hex: '#5DB1C5' },
@@ -8,7 +8,7 @@ const colors = [
 ]
 
 export default {
-  title: 'EGER/Col Chart',
+  title: 'Infographic/Column',
   argTypes: {
     value: {
       control: { type: 'range', min: 0, max: 100, step: 1 }
@@ -34,9 +34,9 @@ const DefaultTemplate = (args, { argTypes }) => {
   const props = [...Object.keys(argTypes), 'color']
   // return the config
   return {
-    components: { EgerColChart },
+    components: { EgerInfographicColumn },
     props: props,
-    template: `<eger-col-chart 
+    template: `<eger-infographic-column 
                 :value="value" 
                 :color="color" 
               />`

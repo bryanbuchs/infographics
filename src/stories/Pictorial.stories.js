@@ -10,7 +10,7 @@ const colors = [
 ]
 
 export default {
-  title: 'EGER/Pictorial',
+  title: 'Infographic/Pictorial',
   argTypes: {
     value: {
       control: { type: 'range', min: 0, max: 100, step: 1 }

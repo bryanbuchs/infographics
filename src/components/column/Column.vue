@@ -1,5 +1,5 @@
 <template>
-  <div class="eger-col-chart">
+  <div class="eger-infographic column">
     <svg
       role="img"
       xmlns="http://www.w3.org/2000/svg"
@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  name: 'ColChart',
+  name: 'Column',
 
   props: {
     value: {
@@ -51,12 +51,10 @@ export default {
 </script>
 
 <style lang="less">
-.eger-col-chart {
+.eger-infographic.column {
   position: relative;
   overflow: hidden;
-
   background: fade(#dfe9ed, 25%);
-
   max-width: 80px;
   margin-left: auto;
   margin-right: auto;
