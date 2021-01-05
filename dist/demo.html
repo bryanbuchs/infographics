@@ -1,14 +1,39 @@
-<meta charset="utf-8">
-<title>eger demo</title>
-<script src="https://unpkg.com/vue"></script>
-<script src="./eger.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+    <title>Demo</title>
 
-<eger-column></eger-column>
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:400,700,900&amp;display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<eger-donut></eger-donut>
+  <body>
+    <h3>Column</h3>
+    <eger-column value="67.8" color="#EB5757"></eger-column>
+    <eger-column value="34.5" color="#5DB1C5"></eger-column>
 
-<eger-grid></eger-grid>
+    <h3>Donut</h3>
+    <eger-donut value="3.2" color="#EB5757"></eger-donut>
+    <eger-donut value="34.5" color="#006B9C"></eger-donut>
 
-<eger-pictorial></eger-pictorial>
+    <h3>Grid</h3>
+    <eger-grid value="76" color="#EB5757"></eger-grid>
+    <eger-grid value="45" color="#006B9C"></eger-grid>
 
+    <h3>Pictorial</h3>
+    <eger-pictorial icon="faUser" value="45" color="#EF923A"></eger-pictorial>
+    <eger-pictorial
+      icon="faChalkboardTeacher"
+      value="78"
+      color="#EB5757"
+    ></eger-pictorial>
+    <eger-pictorial icon="faSchool" value="23" color="#5DB1C5"></eger-pictorial>
+
+    <script src="./eger.js"></script>
+  </body>
+</html>

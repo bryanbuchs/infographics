@@ -5,7 +5,7 @@
   "main": "dist/eger.js",
   "scripts": {
     "start": "vue-cli-service storybook:serve -p 6006 -c config/storybook",
-    "build": "vue-cli-service build --target wc --name eger ./src/components/**/*.vue"
+    "build": "vue-cli-service build --target wc --inline-vue --name eger ./src/components/**/*.vue"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
