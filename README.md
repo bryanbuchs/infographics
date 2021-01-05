@@ -3,17 +3,18 @@
 Externalized web component for the EGER site. Usage:
 
 ```
-<eger-infographic type="pictorial" img="person" value="45" fill="#5DB1C5" />
-<eger-infographic type="dots" value="72" fill="#EB5757" />
-<eger-infographic type="pictorial" img="person" value="33" fill="#006B9C" />
-<eger-infographic type="pictorial" img="person" value="20" fill="#EF923A" />
+<eger-pictorial icon="faUser" value="45" color="#5DB1C5" />
+<eger-pictorial icon="faChalkboardTeacher" value="33" color="#006B9C" />
+<eger-pictorial icon="faSchool" value="20" color="#EF923A" />
 
-<eger-infographic type="pictorial" img="school" value="100" fill="#EB5757" />
-<eger-infographic type="pictorial" img="chalkboard-teacher" value="100" fill="#EF923A" />
-<eger-infographic type="donut" value="5.24" fill="#006B9C" />
+<eger-column value="86.9" color="#FCB287" />
+<eger-column value="81.4" color="#EB5757" />
 
-<eger-col-chart value="86.9" fill="#FCB287" />
-<eger-col-chart value="81.4" fill="#EB5757" />
+<eger-donut value="34.5" color="#5DB1C5"></eger-donut>
+<eger-donut value="12.3" color="#EB5757"></eger-donut>
+
+<eger-grid value="76" color="#FCB287"></eger-grid>
+<eger-grid value="48" color="#EB5757"></eger-grid>
 ```
 
 Infgraphics will be rendered on a square SVG canvas. Parent page is responsible for sizing.
@@ -31,10 +32,10 @@ npm install
 ### Start a Storybook instance for preview & development
 
 ```
-npm run serve
+npm start
 ```
 
-### Compiles each component into its own webcomponent
+### Compiles each component into its a webcomponent
 
 ```
 npm run build
