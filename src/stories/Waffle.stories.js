@@ -1,4 +1,4 @@
-import EgerInfographicGrid from '@/components/grid/Grid.vue'
+import EgerInfographicWaffle from '@/components/waffle/Waffle.vue'
 
 const colors = [
   { name: 'bluegreen', hex: '#5DB1C5' },
@@ -8,7 +8,7 @@ const colors = [
 ]
 
 export default {
-  title: 'Infographic/Grid',
+  title: 'Infographic/Waffle',
   argTypes: {
     value: {
       control: { type: 'range', min: 0, max: 100, step: 1 }
@@ -34,9 +34,9 @@ const DefaultTemplate = (args, { argTypes }) => {
   const props = [...Object.keys(argTypes), 'color']
   // return the config
   return {
-    components: { EgerInfographicGrid },
+    components: { EgerInfographicWaffle },
     props: props,
-    template: `<eger-infographic-grid 
+    template: `<eger-infographic-waffle 
                 :value="value" 
                 :color="color" 
               />`

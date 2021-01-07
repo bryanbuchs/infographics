@@ -1,6 +1,6 @@
 <template>
-  <div class="eger-infographic grid">
-    <div class="gauge">
+  <div class="eger-infographic waffle">
+    <div class="points">
       <i v-for="dot in space"></i>
       <i v-for="dot in data" :style="`background: ${color};`"></i>
     </div>
@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: 'Grid',
+  name: 'Waffle',
 
   props: {
     value: {
@@ -37,7 +37,7 @@ export default {
 </script>
 
 <style lang="less">
-.eger-infographic.grid {
+.eger-infographic.waffle {
   position: relative;
   overflow: hidden;
   color: #bfd3db;
@@ -52,7 +52,7 @@ export default {
     padding-bottom: 100%;
   }
 
-  .gauge {
+  .points {
     position: absolute;
     display: block;
     margin: 0;
