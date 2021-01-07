@@ -2,6 +2,10 @@
 node_modules
 # /dist
 
+dist/*.js.map
+dist/eger.xlsx.*
+dist/eger.vendors~*
+
 
 # local env files
 .env.local

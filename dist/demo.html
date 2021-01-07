@@ -10,29 +10,70 @@
       href="https://fonts.googleapis.com/css?family=Lato:400,700,900&amp;display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
-    <h3>Column</h3>
-    <eger-column value="67.8" color="#EB5757"></eger-column>
-    <eger-column value="34.5" color="#5DB1C5"></eger-column>
+    <div class="container lg:w-3/5 mx-auto p-4">
+      <h3 class="font-semibold m-4 text-white bg-blue-900 p-2 rounded">Map</h3>
+      <div class="grid grid-cols-2 gap-4">
+        <eger-map code="KE"></eger-map>
+        <eger-map code="KE,TZ,ET,UG"></eger-map>
+      </div>
+    </div>
 
-    <h3>Donut</h3>
-    <eger-donut value="3.2" color="#EB5757"></eger-donut>
-    <eger-donut value="34.5" color="#006B9C"></eger-donut>
-
-    <h3>Grid</h3>
-    <eger-grid value="76" color="#EB5757"></eger-grid>
-    <eger-grid value="45" color="#006B9C"></eger-grid>
-
-    <h3>Pictorial</h3>
-    <eger-pictorial icon="faUser" value="45" color="#EF923A"></eger-pictorial>
-    <eger-pictorial
-      icon="faChalkboardTeacher"
-      value="78"
-      color="#EB5757"
-    ></eger-pictorial>
-    <eger-pictorial icon="faSchool" value="23" color="#5DB1C5"></eger-pictorial>
+    <div class="container lg:w-3/5 mx-auto p-4">
+      <h3 class="font-semibold m-4 text-white bg-blue-900 p-2 rounded">
+        Column
+      </h3>
+      <div class="grid grid-cols-2 gap-4">
+        <eger-column value="67.8" color="#EB5757"></eger-column>
+        <eger-column value="34.5" color="#EF923A"></eger-column>
+      </div>
+    </div>
+    <div class="container lg:w-3/5 mx-auto p-4">
+      <h3 class="font-semibold m-4 text-white bg-blue-900 p-2 rounded">
+        Donut
+      </h3>
+      <div class="grid grid-cols-2 gap-4">
+        <eger-donut value="3.2" color="#EB5757"></eger-donut>
+        <eger-donut value="34.5" color="#006B9C"></eger-donut>
+      </div>
+    </div>
+    <div class="container lg:w-3/5 mx-auto p-4">
+      <h3 class="font-semibold m-4 text-white bg-blue-900 p-2 rounded">
+        Waffle
+      </h3>
+      <div class="grid grid-cols-2 gap-4">
+        <eger-waffle value="76" color="#EB5757"></eger-waffle>
+        <eger-waffle value="45" color="#006B9C"></eger-waffle>
+      </div>
+    </div>
+    <div class="container lg:w-3/5 mx-auto p-4">
+      <h3 class="font-semibold m-4 text-white bg-blue-900 p-2 rounded">
+        Pictorial
+      </h3>
+      <div class="grid grid-cols-3 gap-4">
+        <eger-pictorial
+          icon="faUser"
+          value="45"
+          color="#EF923A"
+        ></eger-pictorial>
+        <eger-pictorial
+          icon="faChalkboardTeacher"
+          value="78"
+          color="#EB5757"
+        ></eger-pictorial>
+        <eger-pictorial
+          icon="faSchool"
+          value="23"
+          color="#5DB1C5"
+        ></eger-pictorial>
+      </div>
+    </div>
 
     <script src="./eger.js"></script>
   </body>
