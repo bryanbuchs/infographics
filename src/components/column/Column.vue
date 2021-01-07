@@ -1,12 +1,7 @@
 <template>
   <div class="eger-infographic column">
-    <svg
-      role="img"
-      xmlns="http://www.w3.org/2000/svg"
-      :viewBox="viewBox"
-      :title="title"
-    >
-      <rect :width="width" :height="rect.height" :y="rect.y" :fill="color" />
+    <svg role="img" xmlns="http://www.w3.org/2000/svg" :viewBox="viewBox">
+      <rect :width="width" :height="rect.height" :y="rect.y" :fill="hex" />
     </svg>
   </div>
 </template>
@@ -43,8 +38,26 @@ export default {
         y: this.height - (this.value / 100) * this.height
       }
     },
-    title () {
-      return `${this.value}%`
+    hex () {
+      let hex
+      switch (this.color) {
+        case 'aquamarine':
+          hex = '#5DB1C5'
+          break
+        case 'red':
+          hex = '#EB5757'
+          break
+        case 'blue':
+          hex = '#006B9C'
+          break
+        case 'orange':
+          hex = '#EF923A'
+          break
+        default:
+          hex = this.color
+          break
+      }
+      return hex
     }
   }
 }
