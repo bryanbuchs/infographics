@@ -2,7 +2,7 @@
   <div class="eger-infographic waffle">
     <div class="points">
       <i v-for="dot in space"></i>
-      <i v-for="dot in data" :style="`background: ${color};`"></i>
+      <i v-for="dot in data" :style="`background: ${hex};`"></i>
     </div>
   </div>
 </template>
@@ -31,6 +31,27 @@ export default {
     },
     data () {
       return [...Array(this.wholeValue).keys()]
+    },
+    hex () {
+      let hex
+      switch (this.color) {
+        case 'aquamarine':
+          hex = '#5DB1C5'
+          break
+        case 'red':
+          hex = '#EB5757'
+          break
+        case 'blue':
+          hex = '#006B9C'
+          break
+        case 'orange':
+          hex = '#EF923A'
+          break
+        default:
+          hex = this.color
+          break
+      }
+      return hex
     }
   }
 }

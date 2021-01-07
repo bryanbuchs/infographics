@@ -60,9 +60,29 @@ export default {
     circumference () {
       return 2 * Math.PI * this.radius
     },
-
+    hex () {
+      let hex
+      switch (this.color) {
+        case 'aquamarine':
+          hex = '#5DB1C5'
+          break
+        case 'red':
+          hex = '#EB5757'
+          break
+        case 'blue':
+          hex = '#006B9C'
+          break
+        case 'orange':
+          hex = '#EF923A'
+          break
+        default:
+          hex = this.color
+          break
+      }
+      return hex
+    },
     colors () {
-      return [this.color, '#bfd3db']
+      return [this.hex, '#bfd3db']
     },
 
     chartData () {
