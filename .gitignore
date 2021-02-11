@@ -5,7 +5,7 @@ node_modules
 dist/*.js.map
 dist/eger.xlsx.*
 dist/eger.vendors~*
-
+dist/demo.html
 
 # local env files
 .env.local

@@ -9097,7 +9097,7 @@ function normalizeComponent (
   }
 }
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"796db894-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/column/Column.vue?vue&type=template&id=50b64ecd&shadow
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"029a71fe-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/column/Column.vue?vue&type=template&id=50b64ecd&shadow
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"eger-infographic column"},[_c('svg',{attrs:{"role":"img","xmlns":"http://www.w3.org/2000/svg","viewBox":_vm.viewBox}},[_c('rect',{attrs:{"width":_vm.width,"height":_vm.rect.height,"y":_vm.rect.y,"fill":_vm.hex}})])])}
 var staticRenderFns = []
 
@@ -9202,7 +9202,7 @@ var Columnshadow_component = normalizeComponent(
 )
 
 /* harmony default export */ var Columnshadow = (Columnshadow_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"796db894-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/donut/Donut.vue?vue&type=template&id=e335a0c6&shadow
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"029a71fe-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/donut/Donut.vue?vue&type=template&id=e335a0c6&shadow
 var Donutvue_type_template_id_e335a0c6_shadow_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"eger-infographic donut"},[_c('svg',{attrs:{"height":_vm.height,"width":_vm.width,"viewBox":("0 0 " + _vm.height + " " + _vm.width),"role":"presentation","fill":"transparent"}},_vm._l((_vm.chartData),function(obj){return _c('g',[_c('circle',{attrs:{"cx":_vm.cx,"cy":_vm.cy,"r":_vm.radius,"stroke":obj.stroke,"stroke-width":_vm.strokeWidth,"stroke-dasharray":_vm.circumference,"stroke-dashoffset":obj.dashoffset,"transform":obj.transform}})])}),0),_c('div',{staticClass:"label"},[_vm._v(_vm._s(((this.value.toFixed(1)) + "%")))])])}
 var Donutvue_type_template_id_e335a0c6_shadow_staticRenderFns = []
 
@@ -9360,7 +9360,7 @@ var Donutshadow_component = normalizeComponent(
 )
 
 /* harmony default export */ var Donutshadow = (Donutshadow_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"796db894-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/map/Map.vue?vue&type=template&id=2025bd28&shadow
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"029a71fe-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/map/Map.vue?vue&type=template&id=2025bd28&shadow
 var Mapvue_type_template_id_2025bd28_shadow_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _vm._m(0)}
 var Mapvue_type_template_id_2025bd28_shadow_staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"eger-infographic map"},[_c('div',{staticClass:"map"})])}]
 
@@ -28056,6 +28056,10 @@ function getGhostPaper() {
         // ghost is used to draw elements while real paper is not yet created or Sprite doesn't know parent yet
         var ghostDiv = document.createElement("div");
         ghostDiv.hidden = true;
+        ghostDiv.style.width = "1px";
+        ghostDiv.style.height = "1px";
+        ghostDiv.style.position = "absolute";
+        ghostDiv.style.zIndex = "-1000000";
         document.body.appendChild(ghostDiv);
         var ghostSvgContainer = new SVGContainer_SVGContainer(ghostDiv, true);
         ghostPaper = new Paper_Paper(ghostSvgContainer.SVGContainer, "ghost");
@@ -33308,7 +33312,7 @@ var ExportMenu_ExportMenu = /** @class */ (function (_super) {
             //branch.interactions.clickable = true;
             // TODO clean this up when it's disposed
             branch.interactions.events.on("hit", function (ev) {
-                if (_this.events.isEnabled("hit")) {
+                if (_this.events.isEnabled("hit") && !_this.isDisposed()) {
                     var event_1 = {
                         "type": "hit",
                         "event": ev.event,
@@ -33371,6 +33375,9 @@ var ExportMenu_ExportMenu = /** @class */ (function (_super) {
         });
         // TODO clean this up when it's disposed
         branch.interactions.events.on("out", function (ev) {
+            if (_this.isDisposed()) {
+                return;
+            }
             if (!ev.pointer.touch) {
                 _this.delayUnselectBranch(branch);
             }
@@ -33942,6 +33949,9 @@ var ExportMenu_ExportMenu = /** @class */ (function (_super) {
      */
     ExportMenu.prototype.close = function () {
         var _this = this;
+        if (this.isDisposed()) {
+            return;
+        }
         if (this._ignoreNextClose) {
             this._ignoreNextClose = false;
             return;
@@ -33979,6 +33989,9 @@ var ExportMenu_ExportMenu = /** @class */ (function (_super) {
      */
     ExportMenu.prototype.selectBranch = function (branch) {
         var _this = this;
+        if (this.isDisposed()) {
+            return;
+        }
         // Cancel previous closure
         if (branch.closeTimeout) {
             this.removeDispose(branch.closeTimeout);
@@ -34026,6 +34039,9 @@ var ExportMenu_ExportMenu = /** @class */ (function (_super) {
      * @param simple If `true`, only the branch will be unselected without selecting parent branch
      */
     ExportMenu.prototype.unselectBranch = function (branch, simple) {
+        if (this.isDisposed()) {
+            return;
+        }
         // Remove active class
         removeClass(branch.element, "active");
         // Set expanded
@@ -34056,6 +34072,9 @@ var ExportMenu_ExportMenu = /** @class */ (function (_super) {
      */
     ExportMenu.prototype.delayUnselectBranch = function (branch, simple) {
         var _this = this;
+        if (this.isDisposed()) {
+            return;
+        }
         // Schedule branch unselection
         if (branch.closeTimeout) {
             this.removeDispose(branch.closeTimeout);
@@ -34082,6 +34101,9 @@ var ExportMenu_ExportMenu = /** @class */ (function (_super) {
      * @param key A key that was pressed
      */
     ExportMenu.prototype.moveSelection = function (key) {
+        if (this.isDisposed()) {
+            return;
+        }
         // Check if there's a current selection
         if (!this._currentSelection) {
             return;
@@ -36639,6 +36661,7 @@ var Export_Export = /** @class */ (function (_super) {
                     case 1:
                         XLSX = _a.sent();
                         wbOptions = this.adapter.apply("xlsxWorkbookOptions", {
+                            xlsx: XLSX,
                             options: {
                                 bookType: "xlsx",
                                 bookSST: false,
@@ -36646,6 +36669,7 @@ var Export_Export = /** @class */ (function (_super) {
                             }
                         }).options;
                         sheetName = this.normalizeExcelSheetName(this.adapter.apply("xlsxSheetName", {
+                            xlsx: XLSX,
                             name: this.title || this.language.translate("Data")
                         }).name);
                         wb = {
@@ -36700,6 +36724,7 @@ var Export_Export = /** @class */ (function (_super) {
                         wb.Sheets[sheetName] = XLSX.utils.aoa_to_sheet(data);
                         // Apply adapters
                         wb = this.adapter.apply("xlsxWorkbook", {
+                            xlsx: XLSX,
                             workbook: wb,
                             options: options
                         }).workbook;
@@ -49573,7 +49598,7 @@ var System_System = /** @class */ (function () {
      *
      * @see {@link https://docs.npmjs.com/misc/semver}
      */
-    System.VERSION = "4.10.13";
+    System.VERSION = "4.10.15";
     return System;
 }());
 
@@ -54857,12 +54882,12 @@ var Label_Label = /** @class */ (function (_super) {
             // This will bet reset to actual content width/height
             if (this.maxWidth) {
                 fo.attr({
-                    width: this.maxWidth
+                    width: this.maxWidth - this.pixelPaddingLeft - this.pixelPaddingRight
                 });
             }
             if (this.maxHeight) {
                 fo.attr({
-                    height: this.maxHeight
+                    height: this.maxHeight - this.pixelPaddingTop - this.pixelPaddingBottom
                 });
             }
             // Create line element
@@ -54881,9 +54906,9 @@ var Label_Label = /** @class */ (function (_super) {
                 height: clientHeight
             };
             // Set exact dimensions of foreignObject so it is sized exactly as
-            // the content within
+            // the content within (add one pixel to width so it does not wrap)
             fo.attr({
-                width: clientWidth,
+                width: clientWidth + 1,
                 height: clientHeight
             });
             // Check if maybe we need to hide the whole label if it doesn't fit
@@ -72945,6 +72970,7 @@ var ValueAxis_ValueAxis = /** @class */ (function (_super) {
                     this.validateDataElement(dataItem);
                 }
                 i++;
+                var oldValue = value_1;
                 if (!this.logarithmic) {
                     value_1 += this._step;
                 }
@@ -72961,8 +72987,13 @@ var ValueAxis_ValueAxis = /** @class */ (function (_super) {
                 if (stepPower < 1) {
                     // exponent is less then 1 too. Count decimals of exponent
                     var decCount = Math.round(Math.abs(Math.log(Math.abs(stepPower)) * Math.LOG10E)) + 2;
+                    decCount = Math.min(13, decCount);
                     // round value to avoid floating point issues
-                    value_1 = round(value_1, decCount);
+                    value_1 = ceil(value_1, decCount);
+                    if (oldValue == value_1) {
+                        value_1 = maxZoomed;
+                        break;
+                    }
                 }
             }
             var axisBreaks = this._axisBreaks;
@@ -73464,6 +73495,13 @@ var ValueAxis_ValueAxis = /** @class */ (function (_super) {
             max = this._adapterO.apply("max", max);
         }
         this._step = minMaxStep.step;
+        if (!Type_isNumber(min) && !Type_isNumber(max)) {
+            this.start = 0;
+            this.end = 1;
+            this.renderer.labels.each(function (label) {
+                label.dataItem.text = "";
+            });
+        }
         // checking isNumber is good when all series are hidden
         if ((this._minAdjusted != min || this._maxAdjusted != max) && Type_isNumber(min) && Type_isNumber(max)) {
             var animation = this._minMaxAnimation;
@@ -74119,7 +74157,7 @@ var ValueAxis_ValueAxis = /** @class */ (function (_super) {
          * to 70%.
          *
          * @since 4.1.1
-         * @default flase
+         * @default false
          * @param  value  Preseve zoom after data update?
          */
         set: function (value) {
@@ -89139,7 +89177,7 @@ var Mapshadow_component = normalizeComponent(
 )
 
 /* harmony default export */ var Mapshadow = (Mapshadow_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"796db894-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/pictorial/Pictorial.vue?vue&type=template&id=dbc2ba24&shadow
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"029a71fe-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/pictorial/Pictorial.vue?vue&type=template&id=dbc2ba24&shadow
 var Pictorialvue_type_template_id_dbc2ba24_shadow_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"eger-infographic pictorial"},[_c('svg',{attrs:{"role":"img","xmlns":"http://www.w3.org/2000/svg","viewBox":_vm.viewBox}},[_c('defs',[_c('path',{attrs:{"id":"shape","d":_vm.path.d}}),_c('mask',{attrs:{"id":"mask"}},[_c('use',{attrs:{"xlink:href":"#shape","fill":"#fff"}})])]),_c('use',{attrs:{"xlink:href":"#shape","fill":"currentColor"}}),_c('rect',{attrs:{"width":_vm.rect.width,"height":_vm.rect.height,"y":_vm.rect.y,"fill":_vm.hex,"mask":"url(#mask)"}})])])}
 var Pictorialvue_type_template_id_dbc2ba24_shadow_staticRenderFns = []
 
@@ -89148,7 +89186,7 @@ var Pictorialvue_type_template_id_dbc2ba24_shadow_staticRenderFns = []
 
 // CONCATENATED MODULE: ./node_modules/@fortawesome/free-solid-svg-icons/index.es.js
 /*!
- * Font Awesome Free 5.15.1 by @fontawesome - https://fontawesome.com
+ * Font Awesome Free 5.15.2 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
 var index_es_prefix = "fas";
@@ -95310,7 +95348,7 @@ var Pictorialshadow_component = normalizeComponent(
 )
 
 /* harmony default export */ var Pictorialshadow = (Pictorialshadow_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"796db894-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/waffle/Waffle.vue?vue&type=template&id=0137ea4d&shadow
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"029a71fe-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/waffle/Waffle.vue?vue&type=template&id=0137ea4d&shadow
 var Wafflevue_type_template_id_0137ea4d_shadow_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"eger-infographic waffle"},[_c('div',{staticClass:"points"},[_vm._l((_vm.space),function(dot){return _c('i')}),_vm._l((_vm.data),function(dot){return _c('i',{style:(("background: " + _vm.hex + ";"))})})],2)])}
 var Wafflevue_type_template_id_0137ea4d_shadow_staticRenderFns = []
 
