@@ -9360,12 +9360,12 @@ var Donutshadow_component = normalizeComponent(
 )
 
 /* harmony default export */ var Donutshadow = (Donutshadow_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"796db894-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/map/Map.vue?vue&type=template&id=2f1c15fe&shadow
-var Mapvue_type_template_id_2f1c15fe_shadow_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _vm._m(0)}
-var Mapvue_type_template_id_2f1c15fe_shadow_staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"eger-infographic map"},[_c('div',{staticClass:"map"})])}]
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"796db894-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/map/Map.vue?vue&type=template&id=2025bd28&shadow
+var Mapvue_type_template_id_2025bd28_shadow_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _vm._m(0)}
+var Mapvue_type_template_id_2025bd28_shadow_staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"eger-infographic map"},[_c('div',{staticClass:"map"})])}]
 
 
-// CONCATENATED MODULE: ./src/components/map/Map.vue?vue&type=template&id=2f1c15fe&shadow
+// CONCATENATED MODULE: ./src/components/map/Map.vue?vue&type=template&id=2025bd28&shadow
 
 // CONCATENATED MODULE: ./node_modules/@amcharts/amcharts4/node_modules/tslib/tslib.es6.js
 /*! *****************************************************************************
@@ -89086,7 +89086,8 @@ addLicense('CH238702837');
     const base = new MapPolygonSeries_MapPolygonSeries();
     base.useGeodata = true;
     base.exclude = ['AQ'];
-    base.mapPolygons.template.fill = Color_color('#bfd3db'); // highlighted country
+    base.mapPolygons.template.fill = Color_color('#bfd3db');
+    base.mapPolygons.template.focusable = false; // highlighted country
 
     const highlights = new MapPolygonSeries_MapPolygonSeries();
     highlights.useGeodata = true;
@@ -89128,8 +89129,8 @@ if (style0.__inject__) style0.__inject__(context)
 
 var Mapshadow_component = normalizeComponent(
   map_Mapvue_type_script_lang_js_shadow,
-  Mapvue_type_template_id_2f1c15fe_shadow_render,
-  Mapvue_type_template_id_2f1c15fe_shadow_staticRenderFns,
+  Mapvue_type_template_id_2025bd28_shadow_render,
+  Mapvue_type_template_id_2025bd28_shadow_staticRenderFns,
   false,
   Mapshadow_injectStyles,
   null,

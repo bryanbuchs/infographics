@@ -41,6 +41,7 @@ export default {
     base.useGeodata = true
     base.exclude = ['AQ']
     base.mapPolygons.template.fill = am4core.color('#bfd3db')
+    base.mapPolygons.template.focusable = false
 
     // highlighted country
     const highlights = new am4maps.MapPolygonSeries()
